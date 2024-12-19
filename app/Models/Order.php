@@ -2,18 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'shop_id', 'user_id', 'status_id', 'total_price'
+        'shop_id',
+        'user_id',
+        'status_id',
+        'total_price',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'total_price' => MoneyCast::class,
+        ];
+    }
 
     public function shop(): BelongsTo
     {

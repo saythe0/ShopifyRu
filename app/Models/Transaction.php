@@ -2,17 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Transaction extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'order_id', 'payment_method', 'payment_system_transaction_id', 'payment_link', 'amount', 'status'
+        'order_id',
+        'payment_method',
+        'payment_system_transaction_id', 'payment_link',
+        'amount',
+        'status',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'amount' => MoneyCast::class,
+        ];
+    }
 
     public function order(): BelongsTo
     {

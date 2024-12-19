@@ -2,18 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Purchase extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'shop_id', 'purchasable_id', 'purchasable_type', 'amount'
+        'shop_id',
+        'purchasable_id',
+        'purchasable_type',
+        'amount',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'amount' => MoneyCast::class,
+        ];
+    }
 
     public function shop(): BelongsTo
     {
