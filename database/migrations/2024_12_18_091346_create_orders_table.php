@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('shop_id')->constrained('shops');
             $table->foreignId('user_id')->constrained('users');
-            $table->integer('status_id');
+            $table->integer('status');
             $table->integer('total_price');
             $table->timestamps();
 
-            $table->index('status_id');
+            $table->index('status');
         });
     }
 

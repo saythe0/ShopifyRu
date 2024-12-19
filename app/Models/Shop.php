@@ -26,10 +26,15 @@ class Shop extends Model
         'description',
     ];
 
+    protected $hidden = [
+        'key',
+    ];
+
     protected function casts(): array
     {
         return [
             'commission_rate' => MoneyCast::class,
+            'is_verified' => 'boolean',
         ];
     }
 

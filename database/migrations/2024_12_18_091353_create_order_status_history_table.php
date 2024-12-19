@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('order_status_history', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained('orders');
-            $table->integer('status_id');
+            $table->integer('status');
             $table->timestamp('changed_at')->useCurrent();
             $table->timestamps();
 
-            $table->index(['order_id', 'status_id']);
+            $table->index(['order_id', 'status']);
         });
     }
 

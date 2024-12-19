@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\LogActionEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -17,6 +18,7 @@ class Log extends Model
     {
         return [
             'metadata' => 'array',
+            'action' => LogActionEnum::class,
         ];
     }
 

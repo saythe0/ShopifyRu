@@ -9,7 +9,7 @@ class OrderStatusHistory extends Model
 {
     protected $fillable = [
         'order_id',
-        'status_id',
+        'status',
         'changed_at',
     ];
 

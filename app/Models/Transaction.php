@@ -20,6 +20,7 @@ class Transaction extends Model
     {
         return [
             'amount' => MoneyCast::class,
+            'status' => TransactionStatusEnum::class,
         ];
     }
 

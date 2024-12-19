@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained('orders');
             $table->integer('payment_method');
-            $table->string('payment_system_transaction_id');
             $table->string('payment_link')->nullable();
             $table->integer('amount');
             $table->integer('status');
