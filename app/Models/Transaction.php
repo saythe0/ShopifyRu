@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Casts\MoneyCast;
+use App\Enums\TransactionStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -11,7 +12,8 @@ class Transaction extends Model
     protected $fillable = [
         'order_id',
         'payment_method',
-        'payment_system_transaction_id', 'payment_link',
+        'payment_system_transaction_id',
+        'payment_link',
         'amount',
         'status',
     ];

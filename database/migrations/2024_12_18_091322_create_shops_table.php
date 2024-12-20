@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('subdomain')->unique();
-            $table->string('key')->unique();
+            $table->string('key')->unique()->nullable();
             $table->foreignId('owner_id')->constrained('users');
             $table->foreignId('template_id')->constrained('templates');
-            $table->integer('commission_rate');
+            $table->integer('commission_rate')->nullable();
             $table->boolean('pay_full_commission')->default(false);
             $table->boolean('is_verified')->default(false);
             $table->text('description')->nullable();

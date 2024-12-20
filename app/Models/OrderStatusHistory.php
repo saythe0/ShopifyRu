@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OrderStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -17,6 +18,7 @@ class OrderStatusHistory extends Model
     {
         return [
             'changed_at' => 'datetime',
+            'status' => OrderStatusEnum::class,
         ];
     }
 

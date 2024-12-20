@@ -28,6 +28,7 @@ class Product extends Model
     {
         return [
             'price' => MoneyCast::class,
+            'is_active' => 'boolean',
         ];
     }
 
